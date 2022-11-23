@@ -51,8 +51,15 @@ namespace ConsoleApp3
         public void Versamento() {
             Console.WriteLine("inserchi cifra che vuoi versare:");
            saldo += int.Parse(Console.ReadLine());
+            Console.WriteLine($"Nuovo saldo:{saldo} euro");
+            menuStart();
         }
 
-        public void Prelievo() { }
+        public void Prelievo() {
+            Console.WriteLine("inserchi cifra che vuoi prelevare:");
+            saldo -= int.Parse(Console.ReadLine());
+            Console.WriteLine($"Nuovo saldo:{saldo} euro");
+            menuStart();
+        }
     }
 }

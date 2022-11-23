@@ -13,7 +13,7 @@ namespace ConsoleApp3
 
         static void Main(string[] args)
         {
-            
+        
         contoCorrente mioConto = new contoCorrente();
         mioConto.menuStart();
 
