@@ -8,22 +8,24 @@ namespace ConsoleApp3
 {
     internal class contoCorrente
     {
-        public string nome { get; set; }
+
+        public string nome { get; set; } 
         public string cognome { get; set; }
-        public decimal saldo { get; set; }
+        public decimal saldo = 0;
 
 
         
         public void menuStart()
         {
             
-            Console.WriteLine("***********************************************************");
+            
             Console.WriteLine("******************    BANCA BIANCA !    *******************");
-            Console.WriteLine("***********************************************************");
+            Console.WriteLine("******************    By Aras Pourbijan - esercizio EPICODE     *******************");
             Console.WriteLine("1 - Aprire il conto");
             Console.WriteLine("2 - Fare un versamento");
             Console.WriteLine("3 - Fare un prelevamento");
-          
+            Console.WriteLine("***********************************************************");
+
             string scelta = Console.ReadLine();
 
             if(scelta== "1") { Console.WriteLine("Apertura del conto:"); ApriUnConto();}
@@ -39,26 +41,44 @@ namespace ConsoleApp3
         {
             
             Console.WriteLine("inserchi nome:");
-            string nome = Console.ReadLine();
+           nome= Console.ReadLine();
             Console.WriteLine("inserchi cognome:");
-            string cognome = Console.ReadLine();
+            cognome = Console.ReadLine();
             Console.WriteLine("fai primo versamento:");
-            int saldo = int.Parse(Console.ReadLine());
-            Console.WriteLine($"nuovo conto corrente per {nome} {cognome} con saldo iniziale di{saldo} euro");
+            saldo = int.Parse(Console.ReadLine());
+            Console.WriteLine($"nuovo conto corrente per {nome} {cognome} con saldo iniziale di {saldo} euro");
             menuStart();
         }
 
         public void Versamento() {
-            Console.WriteLine("inserchi cifra che vuoi versare:");
-           saldo += int.Parse(Console.ReadLine());
-            Console.WriteLine($"Nuovo saldo:{saldo} euro");
+           if(nome == null && cognome == null) { 
+           
+                Console.WriteLine("Prima apri un conto");
+                ApriUnConto();
+
+            }
+            else
+            {
+                Console.WriteLine("inserchi cifra che vuoi versare:");
+                saldo += int.Parse(Console.ReadLine());
+                Console.WriteLine($"Nuovo saldo:{saldo} euro");
+            }
             menuStart();
         }
-
+        
         public void Prelievo() {
-            Console.WriteLine("inserchi cifra che vuoi prelevare:");
+            if (nome == null && cognome == null)
+            {
+
+                Console.WriteLine("Prima apri un conto");
+                ApriUnConto();
+
+            }
+            else { 
+                Console.WriteLine("inserchi cifra che vuoi prelevare:");
             saldo -= int.Parse(Console.ReadLine());
             Console.WriteLine($"Nuovo saldo:{saldo} euro");
+            }
             menuStart();
         }
     }
