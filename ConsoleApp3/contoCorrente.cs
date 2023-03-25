@@ -37,7 +37,7 @@ namespace ConsoleApp3
 
 
 
-        public void ApriUnConto()
+        private void ApriUnConto()
         {
             
             Console.WriteLine("inserchi nome:");
@@ -50,7 +50,7 @@ namespace ConsoleApp3
             menuStart();
         }
 
-        public void Versamento() {
+        private void Versamento() {
            if(nome == null && cognome == null) { 
            
                 Console.WriteLine("Prima apri un conto");
@@ -66,7 +66,7 @@ namespace ConsoleApp3
             menuStart();
         }
         
-        public void Prelievo() {
+        private void Prelievo() {
             if (nome == null && cognome == null)
             {
 
